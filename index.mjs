@@ -5,15 +5,6 @@ const PORT = 3000
 const app = express()
 const {Client, Pool} = pg
 
-const jwt = require('jsonwebtoken');
-> require('crypto').randomBytes(64).toString('hex') 
-const dotenv = require('dotenv');
-// get config vars
-dotenv.config();
-// access config var
-process.env.TOKEN_SECRET;
-
-
 
 app.use(express.json())
 app.get('/', (req, res) => res.send({ info: `Hello World!` }))
@@ -27,8 +18,6 @@ const pool = new Pool({
 });
 
 await pool.connect();
-
-
 
 app.get('/lobby', (req, res) => {
     console.log('route users appelée')
